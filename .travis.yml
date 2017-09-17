@@ -1,33 +1,33 @@
 os: osx
 language: objective-c
 matrix:
-    include:
-        - osx_image: xcode9
-          env: PLAT=iOS SWFT=4.0
-        - osx_image: xcode9
-          env: PLAT=watchOS SWFT=4.0
+  include:
+    - osx_image: xcode9
+      env: PLAT=iOS SWFT=4.0
+    - osx_image: xcode9
+      env: PLAT=watchOS SWFT=4.0
 before_install:
-    - case $PLAT in
+  - case $PLAT in
     iOS)
-        NAME="iPhone SE";;
+      NAME="iPhone SE";;
     watchOS)
-        NAME="Apple Watch - 38mm";;
+      NAME="Apple Watch - 38mm";;
     esac;
     if [ -n "$NAME" ]; then
-        export UUID=$(instruments -s | ruby -e "ARGF.each_line{ |ln| ln =~ /$NAME .* \[(.*)\]/; if \$1; puts(\$1); exit; end }");
-        export DESTINATION="id=$UUID";
+      export UUID=$(instruments -s | ruby -e "ARGF.each_line{ |ln| ln =~ /$NAME .* \[(.*)\]/; if \$1; puts(\$1); exit; end }");
+      export DESTINATION="id=$UUID";
     fi
 script:
-    - set -o pipefail;
+  - set -o pipefail;
     case $PLAT in
     iOS)
-        open -b com.apple.iphonesimulator --args -CurrentDeviceUDID "$UUID";
-        xcodebuild -scheme "RelayKit - iOS" -quiet -destination "$DESTINATION" -enableCodeCoverage YES build clean SWIFT_VERSION=$SWFT;
-        xcodebuild -scheme "RelayKit - iOS" -quiet -destination "$DESTINATION" test;;
+      open -b com.apple.iphonesimulator --args -CurrentDeviceUDID "$UUID";
+      xcodebuild -scheme "RelayKit - iOS" -quiet -destination "$DESTINATION" -enableCodeCoverage YES build clean SWIFT_VERSION=$SWFT;
+      xcodebuild -scheme "RelayKit - iOS" -quiet -destination "$DESTINATION" test;;
     watchOS)
-        xcodebuild -scheme "RelayKit - watchOS" -quiet -destination "$DESTINATION" -quiet clean build SWIFT_VERSION=$SWFT;;
+      xcodebuild -scheme "RelayKit - iOS" -quiet -destination "$DESTINATION" -quiet clean build SWIFT_VERSION=$SWFT;;
     esac
 after_success:
-    - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-        bash <(curl -s https://codecov.io/bash);
+  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
+      bash <(curl -s https://codecov.io/bash);
     fi
