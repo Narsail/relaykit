@@ -1,6 +1,6 @@
 # RelayKit
 
-![badge-pod] ![badge-languages] ![badge-pms] ![badge-platforms][![Build Status](https://travis-ci.org/Narsail/relaykit.svg?branch=master)](https://travis-ci.org/Narsail/relaykit)
+![badge-pod] ![badge-languages] ![badge-pms] ![badge-platforms] [![Build Status](https://travis-ci.org/Narsail/relaykit.svg?branch=master)](https://travis-ci.org/Narsail/relaykit)
 
 
 
