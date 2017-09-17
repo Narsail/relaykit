@@ -6,11 +6,10 @@ matrix:
           env: PLAT=iOS SWFT=4.0
         - osx_image: xcode9
           env: PLAT=watchOS SWFT=4.0
-
 before_install:
     - case $PLAT in
     iOS)
-        NAME="iPhone 7";;
+        NAME="iPhone SE";;
     watchOS)
         NAME="Apple Watch - 38mm";;
     esac;
@@ -18,7 +17,6 @@ before_install:
         export UUID=$(instruments -s | ruby -e "ARGF.each_line{ |ln| ln =~ /$NAME .* \[(.*)\]/; if \$1; puts(\$1); exit; end }");
         export DESTINATION="id=$UUID";
     fi
-
 script:
     - set -o pipefail;
     case $PLAT in
