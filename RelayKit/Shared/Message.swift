@@ -20,3 +20,7 @@ public protocol Message {
     static func decode(_ data: [String: Any]) throws -> Self
     
 }
+
+public enum MessageError: Error {
+    case keyNotFound(key: String)
+}

@@ -37,7 +37,4 @@ class SimpleCore: RelayCore {
         self.didReceiveUserInfo(data)
     }
     
-    
-    
-    
 }

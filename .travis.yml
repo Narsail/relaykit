@@ -1,0 +1,5 @@
+osx_image: xcode9
+
+language: swift
+xcode_workspace: RelayKit.xcworkspace # path to your xcodeproj folder
+xcode_scheme: iOS Framework Unit Tests

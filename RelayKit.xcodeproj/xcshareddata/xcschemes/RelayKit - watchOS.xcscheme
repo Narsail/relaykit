@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2A1499331F6D43B200F1269F"
-               BuildableName = "watchOS_Framework.framework"
+               BuildableName = "RelayKit.framework"
                BlueprintName = "watchOS Framework"
                ReferencedContainer = "container:RelayKit.xcodeproj">
             </BuildableReference>
@@ -48,7 +48,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2A1499331F6D43B200F1269F"
-            BuildableName = "watchOS_Framework.framework"
+            BuildableName = "RelayKit.framework"
             BlueprintName = "watchOS Framework"
             ReferencedContainer = "container:RelayKit.xcodeproj">
          </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2A1499331F6D43B200F1269F"
-            BuildableName = "watchOS_Framework.framework"
+            BuildableName = "RelayKit.framework"
             BlueprintName = "watchOS Framework"
             ReferencedContainer = "container:RelayKit.xcodeproj">
          </BuildableReference>
