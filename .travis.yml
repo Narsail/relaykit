@@ -8,8 +8,8 @@ script:
   - set -o pipefail
   - xcodebuild -version
   - xcodebuild -showsdks
-  - xcodebuild test -workspace RelayKit.xcworkspace -scheme "iOS Framework" -sdk iphonesimulator11.0 -enableCodeCoverage YES -destination "platform=iOS Simulator,name=iPhone 7" ONLY_ACTIVE_ARCH=NO | xcpretty -c
-  - xcodebuild build -workspace RelayKit.xcworkspace -scheme "watchOS Framework" -sdk watchsimulator
+  - xcodebuild test -workspace RelayKit.xcworkspace -scheme "RelayKit - iOS" -sdk iphonesimulator11.0 -enableCodeCoverage YES -destination "platform=iOS Simulator,name=iPhone 7" ONLY_ACTIVE_ARCH=NO | xcpretty -c
+  - xcodebuild build -workspace RelayKit.xcworkspace -scheme "RelayKit - watchOS" -sdk watchsimulator
 after_success:
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
       bash <(curl -s https://codecov.io/bash);
