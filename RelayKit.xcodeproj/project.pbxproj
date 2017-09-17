@@ -7,17 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A1499291F6D436A00F1269F /* RelayKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A1499271F6D436A00F1269F /* RelayKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A1499401F6D470F00F1269F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14993F1F6D470F00F1269F /* Message.swift */; };
+		2A1499411F6D470F00F1269F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14993F1F6D470F00F1269F /* Message.swift */; };
+		2A1499431F6D476000F1269F /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1499421F6D476000F1269F /* Sender.swift */; };
+		2A1499441F6D476000F1269F /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1499421F6D476000F1269F /* Sender.swift */; };
+		2A1499461F6D492900F1269F /* Receiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1499451F6D492900F1269F /* Receiver.swift */; };
+		2A1499471F6D492900F1269F /* Receiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1499451F6D492900F1269F /* Receiver.swift */; };
+		2A1499491F6D4D6B00F1269F /* Allrounder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1499481F6D4D6B00F1269F /* Allrounder.swift */; };
+		2A14994A1F6D4D6B00F1269F /* Allrounder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1499481F6D4D6B00F1269F /* Allrounder.swift */; };
+		2A14994C1F6D4DCD00F1269F /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14994B1F6D4DCD00F1269F /* Relay.swift */; };
+		2A14994D1F6D4DCD00F1269F /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14994B1F6D4DCD00F1269F /* Relay.swift */; };
+		2A48ECBC1F6DBDA400542EA6 /* RelayCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A48ECBB1F6DBDA400542EA6 /* RelayCore.swift */; };
+		2A48ECBD1F6DBDA400542EA6 /* RelayCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A48ECBB1F6DBDA400542EA6 /* RelayCore.swift */; };
+		2A48ECBF1F6DC13300542EA6 /* WatchConnectivityCoreIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A48ECBE1F6DC13300542EA6 /* WatchConnectivityCoreIOS.swift */; };
+		2A48ECC11F6DC6BA00542EA6 /* WatchConnectivityCoreWatchOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A48ECC01F6DC6BA00542EA6 /* WatchConnectivityCoreWatchOS.swift */; };
+		2A48ECC41F6DC73900542EA6 /* WatchConnectivityCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A48ECC31F6DC73900542EA6 /* WatchConnectivityCore.swift */; };
+		2A48ECC51F6DC73900542EA6 /* WatchConnectivityCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A48ECC31F6DC73900542EA6 /* WatchConnectivityCore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2A1499241F6D436A00F1269F /* RelayKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RelayKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A1499271F6D436A00F1269F /* RelayKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RelayKit.h; sourceTree = "<group>"; };
+		2A1499241F6D436A00F1269F /* iOS_Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iOS_Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A1499281F6D436A00F1269F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A1499341F6D43B200F1269F /* watchOS_Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = watchOS_Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A1499371F6D43B200F1269F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A14993F1F6D470F00F1269F /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		2A1499421F6D476000F1269F /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
+		2A1499451F6D492900F1269F /* Receiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receiver.swift; sourceTree = "<group>"; };
+		2A1499481F6D4D6B00F1269F /* Allrounder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allrounder.swift; sourceTree = "<group>"; };
+		2A14994B1F6D4DCD00F1269F /* Relay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relay.swift; sourceTree = "<group>"; };
+		2A48ECBB1F6DBDA400542EA6 /* RelayCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayCore.swift; sourceTree = "<group>"; };
+		2A48ECBE1F6DC13300542EA6 /* WatchConnectivityCoreIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityCoreIOS.swift; sourceTree = "<group>"; };
+		2A48ECC01F6DC6BA00542EA6 /* WatchConnectivityCoreWatchOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityCoreWatchOS.swift; sourceTree = "<group>"; };
+		2A48ECC31F6DC73900542EA6 /* WatchConnectivityCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityCore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2A1499201F6D436A00F1269F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A1499301F6D43B200F1269F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,7 +70,8 @@
 		2A1499251F6D436A00F1269F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2A1499241F6D436A00F1269F /* RelayKit.framework */,
+				2A1499241F6D436A00F1269F /* iOS_Framework.framework */,
+				2A1499341F6D43B200F1269F /* watchOS_Framework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -46,10 +79,51 @@
 		2A1499261F6D436A00F1269F /* RelayKit */ = {
 			isa = PBXGroup;
 			children = (
-				2A1499271F6D436A00F1269F /* RelayKit.h */,
-				2A1499281F6D436A00F1269F /* Info.plist */,
+				2A14993C1F6D462300F1269F /* Shared */,
+				2A14993D1F6D462800F1269F /* iOS */,
+				2A14993E1F6D462D00F1269F /* watchOS */,
 			);
 			path = RelayKit;
+			sourceTree = "<group>";
+		};
+		2A14993C1F6D462300F1269F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				2A48ECC21F6DC71D00542EA6 /* Cores */,
+				2A14993F1F6D470F00F1269F /* Message.swift */,
+				2A1499421F6D476000F1269F /* Sender.swift */,
+				2A1499451F6D492900F1269F /* Receiver.swift */,
+				2A1499481F6D4D6B00F1269F /* Allrounder.swift */,
+				2A14994B1F6D4DCD00F1269F /* Relay.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		2A14993D1F6D462800F1269F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2A1499281F6D436A00F1269F /* Info.plist */,
+				2A48ECBE1F6DC13300542EA6 /* WatchConnectivityCoreIOS.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		2A14993E1F6D462D00F1269F /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				2A1499371F6D43B200F1269F /* Info.plist */,
+				2A48ECC01F6DC6BA00542EA6 /* WatchConnectivityCoreWatchOS.swift */,
+			);
+			path = watchOS;
+			sourceTree = "<group>";
+		};
+		2A48ECC21F6DC71D00542EA6 /* Cores */ = {
+			isa = PBXGroup;
+			children = (
+				2A48ECBB1F6DBDA400542EA6 /* RelayCore.swift */,
+				2A48ECC31F6DC73900542EA6 /* WatchConnectivityCore.swift */,
+			);
+			path = Cores;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,16 +133,22 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A1499291F6D436A00F1269F /* RelayKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A1499311F6D43B200F1269F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2A1499231F6D436A00F1269F /* RelayKit */ = {
+		2A1499231F6D436A00F1269F /* iOS Framework */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2A14992C1F6D436A00F1269F /* Build configuration list for PBXNativeTarget "RelayKit" */;
+			buildConfigurationList = 2A14992C1F6D436A00F1269F /* Build configuration list for PBXNativeTarget "iOS Framework" */;
 			buildPhases = (
 				2A14991F1F6D436A00F1269F /* Sources */,
 				2A1499201F6D436A00F1269F /* Frameworks */,
@@ -79,9 +159,27 @@
 			);
 			dependencies = (
 			);
-			name = RelayKit;
+			name = "iOS Framework";
 			productName = RelayKit;
-			productReference = 2A1499241F6D436A00F1269F /* RelayKit.framework */;
+			productReference = 2A1499241F6D436A00F1269F /* iOS_Framework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2A1499331F6D43B200F1269F /* watchOS Framework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A1499391F6D43B200F1269F /* Build configuration list for PBXNativeTarget "watchOS Framework" */;
+			buildPhases = (
+				2A14992F1F6D43B200F1269F /* Sources */,
+				2A1499301F6D43B200F1269F /* Frameworks */,
+				2A1499311F6D43B200F1269F /* Headers */,
+				2A1499321F6D43B200F1269F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "watchOS Framework";
+			productName = "watchOS Framework";
+			productReference = 2A1499341F6D43B200F1269F /* watchOS_Framework.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -95,6 +193,12 @@
 				TargetAttributes = {
 					2A1499231F6D436A00F1269F = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					2A1499331F6D43B200F1269F = {
+						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -111,13 +215,21 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2A1499231F6D436A00F1269F /* RelayKit */,
+				2A1499231F6D436A00F1269F /* iOS Framework */,
+				2A1499331F6D43B200F1269F /* watchOS Framework */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2A1499221F6D436A00F1269F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A1499321F6D43B200F1269F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -131,6 +243,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A48ECBF1F6DC13300542EA6 /* WatchConnectivityCoreIOS.swift in Sources */,
+				2A1499461F6D492900F1269F /* Receiver.swift in Sources */,
+				2A1499431F6D476000F1269F /* Sender.swift in Sources */,
+				2A1499401F6D470F00F1269F /* Message.swift in Sources */,
+				2A1499491F6D4D6B00F1269F /* Allrounder.swift in Sources */,
+				2A48ECC41F6DC73900542EA6 /* WatchConnectivityCore.swift in Sources */,
+				2A48ECBC1F6DBDA400542EA6 /* RelayCore.swift in Sources */,
+				2A14994C1F6D4DCD00F1269F /* Relay.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A14992F1F6D43B200F1269F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A1499471F6D492900F1269F /* Receiver.swift in Sources */,
+				2A1499441F6D476000F1269F /* Sender.swift in Sources */,
+				2A48ECC11F6DC6BA00542EA6 /* WatchConnectivityCoreWatchOS.swift in Sources */,
+				2A1499411F6D470F00F1269F /* Message.swift in Sources */,
+				2A14994A1F6D4D6B00F1269F /* Allrounder.swift in Sources */,
+				2A48ECC51F6DC73900542EA6 /* WatchConnectivityCore.swift in Sources */,
+				2A48ECBD1F6DBDA400542EA6 /* RelayCore.swift in Sources */,
+				2A14994D1F6D4DCD00F1269F /* Relay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +388,7 @@
 		2A14992D1F6D436A00F1269F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -260,12 +396,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = RelayKit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RelayKit/iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = evomo.RelayKit;
+				PRODUCT_BUNDLE_IDENTIFIER = evomo.relaykit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -274,6 +411,7 @@
 		2A14992E1F6D436A00F1269F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -281,14 +419,65 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = RelayKit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RelayKit/iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = evomo.RelayKit;
+				PRODUCT_BUNDLE_IDENTIFIER = evomo.relaykit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2A14993A1F6D43B200F1269F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2T87V487YG;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/RelayKit/watchOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = evomo.relaykit.watchos;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Debug;
+		};
+		2A14993B1F6D43B200F1269F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2T87V487YG;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/RelayKit/watchOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = evomo.relaykit.watchos;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
 		};
@@ -304,11 +493,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2A14992C1F6D436A00F1269F /* Build configuration list for PBXNativeTarget "RelayKit" */ = {
+		2A14992C1F6D436A00F1269F /* Build configuration list for PBXNativeTarget "iOS Framework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2A14992D1F6D436A00F1269F /* Debug */,
 				2A14992E1F6D436A00F1269F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A1499391F6D43B200F1269F /* Build configuration list for PBXNativeTarget "watchOS Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A14993A1F6D43B200F1269F /* Debug */,
+				2A14993B1F6D43B200F1269F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
