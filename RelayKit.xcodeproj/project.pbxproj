@@ -62,6 +62,7 @@
 		2A1D7FEA1F6ED94F004AF4D2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2A2F2D731F7075E200A3BCE5 /* SendingMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendingMethod.swift; sourceTree = "<group>"; };
 		2A2F2D761F707FB100A3BCE5 /* SimpleRelaySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleRelaySpec.swift; sourceTree = "<group>"; };
+		2A2F2D781F70899D00A3BCE5 /* RelayKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = RelayKit.podspec; sourceTree = "<group>"; };
 		2A48ECBB1F6DBDA400542EA6 /* RelayCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayCore.swift; sourceTree = "<group>"; };
 		2A48ECBE1F6DC13300542EA6 /* WatchConnectivityCoreIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityCoreIOS.swift; sourceTree = "<group>"; };
 		2A48ECC01F6DC6BA00542EA6 /* WatchConnectivityCoreWatchOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityCoreWatchOS.swift; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 		2A14991A1F6D436A00F1269F = {
 			isa = PBXGroup;
 			children = (
+				2A2F2D781F70899D00A3BCE5 /* RelayKit.podspec */,
 				2A1D7FEA1F6ED94F004AF4D2 /* README.md */,
 				2A58CB211F6EC71F00E817ED /* Podfile */,
 				2A1499261F6D436A00F1269F /* RelayKit */,
