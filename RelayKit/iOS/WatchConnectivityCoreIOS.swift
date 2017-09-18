@@ -34,15 +34,15 @@ extension WatchConnectivityCoreIOS: WCSessionDelegate {
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        self.didReceiveMessage(message, nil)
+        self.didReceiveMessage(message, WatchConnectivityCoreMethod.sendMessage, nil)
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
-        self.didReceiveMessage(message, replyHandler)
+        self.didReceiveMessage(message, WatchConnectivityCoreMethod.sendMessage, replyHandler)
     }
     
     func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
-        self.didReceiveUserInfo(userInfo)
+        self.didReceiveMessage(userInfo, WatchConnectivityCoreMethod.transferUserInfo, nil)
     }
     
 }

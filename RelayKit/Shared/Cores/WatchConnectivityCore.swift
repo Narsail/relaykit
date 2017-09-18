@@ -11,26 +11,36 @@ import WatchConnectivity
 
 class WatchConnectivityCore: NSObject, RelayCore {
     
-    var didReceiveMessage: ([String : Any], (([String : Any]) -> Void)?) -> Void
+    enum WatchConnectivityCoreMethod: Method {
+        case sendMessage
+        case transferUserInfo
+    }
     
-    var didReceiveUserInfo: ([String : Any]) -> Void
+    static let methodType: Method.Type = WatchConnectivityCoreMethod.self
+    
+    var didReceiveMessage: ([String : Any], Method, (([String : Any]) -> Void)?) -> Void
     
     let wcSession = WCSession.default
     
     override init() {
         wcSession.activate()
         
-        self.didReceiveMessage = { _, _ in }
-        self.didReceiveUserInfo = { _ in }
+        self.didReceiveMessage = { _, _, _ in }
         
         super.init()
     }
     
-    func sendMessage(_ data: [String : Any], replyHandler: @escaping ([String : Any]) -> Void, errorHandler: @escaping (Error) -> Void) {
-        self.wcSession.sendMessage(data, replyHandler: replyHandler, errorHandler: errorHandler)
-    }
-    func transferUserInfo(_ data: [String : Any]) {
-        self.wcSession.transferUserInfo(data)
+    func sendMessage(_ data: [String : Any], _ method: Method, replyHandler: @escaping ([String : Any]) -> Void, errorHandler: @escaping (Error) -> Void) throws {
+        
+        guard let method = method as? WatchConnectivityCoreMethod else { throw RelayCoreError.wrongMethodType }
+        
+        switch method {
+        case .sendMessage:
+            self.wcSession.sendMessage(data, replyHandler: replyHandler, errorHandler: errorHandler)
+        case .transferUserInfo:
+            self.wcSession.transferUserInfo(data)
+        }
+        
     }
     
 }

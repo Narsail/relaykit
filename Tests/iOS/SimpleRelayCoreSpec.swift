@@ -29,33 +29,27 @@ class SimpleRelayCoreSpec: QuickSpec {
             
             describe("sending Messages through the Core") {
                 
-                it("sends a Message without a replyHandler") {
-                    
-                    core.didReceiveMessage = { data, replyHandler in
+                it("sends a Message with the wrong Method Type") {
+                    expect {try core.sendMessage([:], WatchConnectivityCore.WatchConnectivityCoreMethod.sendMessage, replyHandler: { _ in }, errorHandler: {_ in }) }.to(throwError(RelayCoreError.wrongMethodType))
+                }
+                
+                it("sends a Message with a replyHandler") {
+
+                    core.didReceiveMessage = { data, method, replyHandler in
                         expect(data["description"] as? String).to(equal("Test Message"))
-                        
+                        expect(method).to(beAKindOf(SimpleCore.SimpleCoreMethod.self))
                         // Create a new Message
                         replyHandler!(["description": "Reply. Thanks!"])
                     }
-                    
-                    core.sendMessage(sampleData, replyHandler: { replyData in
-                        
+
+                    try! core.sendMessage(sampleData, SimpleCore.SimpleCoreMethod.sendMessage, replyHandler: { replyData in
+
                         expect(replyData["description"] as? String).to(equal("Reply. Thanks!"))
-                        
+
                     }, errorHandler: { _ in })
-                    
-                    
+
                 }
-                
-                it("transfering a User Info") {
-                    
-                    core.didReceiveUserInfo = { data in
-                        expect(data["description"] as? String).to(equal("Test Message"))
-                    }
-                    
-                    core.transferUserInfo(sampleData)
-                    
-                }
+
             }
             
         }

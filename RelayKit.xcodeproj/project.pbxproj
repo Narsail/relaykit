@@ -21,6 +21,8 @@
 		2A1D7FE41F6ECB67004AF4D2 /* SimpleRelayCoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1D7FE31F6ECB67004AF4D2 /* SimpleRelayCoreSpec.swift */; };
 		2A1D7FE61F6ECDC0004AF4D2 /* SampleMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1D7FE51F6ECDC0004AF4D2 /* SampleMessage.swift */; };
 		2A1D7FE81F6ED0BA004AF4D2 /* SampleMessageSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1D7FE71F6ED0BA004AF4D2 /* SampleMessageSpec.swift */; };
+		2A2F2D741F7075E200A3BCE5 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F2D731F7075E200A3BCE5 /* Method.swift */; };
+		2A2F2D751F7075E200A3BCE5 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F2D731F7075E200A3BCE5 /* Method.swift */; };
 		2A48ECBC1F6DBDA400542EA6 /* RelayCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A48ECBB1F6DBDA400542EA6 /* RelayCore.swift */; };
 		2A48ECBD1F6DBDA400542EA6 /* RelayCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A48ECBB1F6DBDA400542EA6 /* RelayCore.swift */; };
 		2A48ECBF1F6DC13300542EA6 /* WatchConnectivityCoreIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A48ECBE1F6DC13300542EA6 /* WatchConnectivityCoreIOS.swift */; };
@@ -57,6 +59,7 @@
 		2A1D7FE51F6ECDC0004AF4D2 /* SampleMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleMessage.swift; sourceTree = "<group>"; };
 		2A1D7FE71F6ED0BA004AF4D2 /* SampleMessageSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleMessageSpec.swift; sourceTree = "<group>"; };
 		2A1D7FEA1F6ED94F004AF4D2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2A2F2D731F7075E200A3BCE5 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		2A48ECBB1F6DBDA400542EA6 /* RelayCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayCore.swift; sourceTree = "<group>"; };
 		2A48ECBE1F6DC13300542EA6 /* WatchConnectivityCoreIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityCoreIOS.swift; sourceTree = "<group>"; };
 		2A48ECC01F6DC6BA00542EA6 /* WatchConnectivityCoreWatchOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityCoreWatchOS.swift; sourceTree = "<group>"; };
@@ -145,6 +148,7 @@
 				2A1499451F6D492900F1269F /* Receiver.swift */,
 				2A1499481F6D4D6B00F1269F /* Allrounder.swift */,
 				2A14994B1F6D4DCD00F1269F /* Relay.swift */,
+				2A2F2D731F7075E200A3BCE5 /* Method.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -502,6 +506,7 @@
 				2A1499401F6D470F00F1269F /* Message.swift in Sources */,
 				2A1499491F6D4D6B00F1269F /* Allrounder.swift in Sources */,
 				2A48ECC41F6DC73900542EA6 /* WatchConnectivityCore.swift in Sources */,
+				2A2F2D741F7075E200A3BCE5 /* Method.swift in Sources */,
 				2A48ECBC1F6DBDA400542EA6 /* RelayCore.swift in Sources */,
 				2A14994C1F6D4DCD00F1269F /* Relay.swift in Sources */,
 			);
@@ -517,6 +522,7 @@
 				2A1499411F6D470F00F1269F /* Message.swift in Sources */,
 				2A14994A1F6D4D6B00F1269F /* Allrounder.swift in Sources */,
 				2A48ECC51F6DC73900542EA6 /* WatchConnectivityCore.swift in Sources */,
+				2A2F2D751F7075E200A3BCE5 /* Method.swift in Sources */,
 				2A48ECBD1F6DBDA400542EA6 /* RelayCore.swift in Sources */,
 				2A14994D1F6D4DCD00F1269F /* Relay.swift in Sources */,
 			);

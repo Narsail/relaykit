@@ -24,3 +24,6 @@ public protocol Message {
 public enum MessageError: Error {
     case keyNotFound(key: String)
 }
+
+
+

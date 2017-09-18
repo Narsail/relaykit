@@ -22,11 +22,11 @@ class SampleMessageSpec: QuickSpec {
             }
             
             it("encode and decode it") {
-                
+
                 let data = message.encode()
-                
+
                 expect((try! SampleMessage.decode(data)).description).to(equal(message.description))
-                
+
             }
             
         }

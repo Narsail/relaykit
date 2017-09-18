@@ -35,30 +35,8 @@ public class Relay: NSObject {
         super.init()
         
         // Attach the receiving end of the core to the receivers
-        self.core.didReceiveUserInfo = { [weak self] userInfo in
-            
-            // Check for the Module Indent
-            do {
-                guard let moduleIdent = userInfo["moduleIdent"] as? String else { throw RelayError.moduleIdentNotFound }
-                
-                // Check for the receiver
-                guard let (receiver, messageTypes) = self?.receiver[moduleIdent] else { throw RelayError.receiverNotFound }
-                
-                // Check for the Message Ident
-                guard let messageIdent = userInfo["messageIdent"] as? String else { throw RelayError.messageIdentNotFound }
-                
-                // Get the appropriate Message Type
-                guard let messageType = messageTypes.first(where: { $0.messageIdent == messageIdent }) else { throw RelayError.noMessageTypeMatchFor(messageIdent: messageIdent) }
-            
-                let message = try messageType.decode(userInfo)
-                receiver.didReceiveUserInfo(message)
-            } catch {
-                self?.errorHandler?(error)
-            }
-            
-        }
         
-        self.core.didReceiveMessage = { [weak self] data, replyHandler in
+        self.core.didReceiveMessage = { [weak self] data, method, replyHandler in
             
             // Check for the Module Indent
             do {
@@ -76,9 +54,9 @@ public class Relay: NSObject {
                 let message = try messageType.decode(data)
                 
                 if let replyHandler = replyHandler {
-                    receiver.didReceiveMessage(message, { data in replyHandler(data.encode()) })
+                    receiver.didReceiveMessage(message, method, { data in replyHandler(data.encode()) })
                 } else {
-                    receiver.didReceiveMessage(message, nil)
+                    receiver.didReceiveMessage(message, method, nil)
                 }
                 
             } catch {
@@ -108,32 +86,30 @@ public class Relay: NSObject {
         self.sender[sender.moduleIdent] = (sender, messages)
         
         // Set the necessary blocks
-        sender.sendMessageBlock = { [weak self] message, replyHandler, errorHandler in
+        sender.sendMessageBlock = { [weak self] message, method, replyHandler, errorHandler in
+            
+            // Error Handling if wrong Method
             
             var data = message.encode()
             data["moduleIdent"] = sender.moduleIdent
             data["messageIdent"] = type(of: message).messageIdent
             
-            self?.core.sendMessage(data, replyHandler: { replyData in
-                do {
-                    // Find Message ident
-                    guard let messageIdent = replyData["messageIdent"] as? String else { throw RelayError.messageIdentNotFound }
-                    // Find a suitable Message to return
-                    guard let messageClass = messages.first(where: { $0.messageIdent == messageIdent }) else { throw RelayError.noMessageTypeMatchFor(messageIdent: messageIdent) }
-                    replyHandler(try messageClass.decode(replyData))
-                } catch {
-                    errorHandler(error)
-                }
-            }, errorHandler: errorHandler)
-        }
-        
-        sender.transferUserInfoBlock = { [weak self] message in
+            do {
+                try self?.core.sendMessage(data, method, replyHandler: { replyData in
+                    do {
+                        // Find Message ident
+                        guard let messageIdent = replyData["messageIdent"] as? String else { throw RelayError.messageIdentNotFound }
+                        // Find a suitable Message to return
+                        guard let messageClass = messages.first(where: { $0.messageIdent == messageIdent }) else { throw RelayError.noMessageTypeMatchFor(messageIdent: messageIdent) }
+                        replyHandler(try messageClass.decode(replyData))
+                    } catch {
+                        errorHandler(error)
+                    }
+                }, errorHandler: errorHandler)
+            } catch {
+                errorHandler(error)
+            }
             
-            var data = message.encode()
-            data["moduleIdent"] = sender.moduleIdent
-            data["messageIdent"] = type(of: message).messageIdent
-            
-            self?.core.transferUserInfo(data)
         }
         
     }
@@ -173,7 +149,6 @@ public class Relay: NSObject {
         
         // Set the Blocks nil
         sender.sendMessageBlock = nil
-        sender.transferUserInfoBlock = nil
         
         self.sender.removeValue(forKey: sender.moduleIdent)
         

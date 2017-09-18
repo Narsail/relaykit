@@ -9,32 +9,38 @@
 import Foundation
 import WatchConnectivity
 
+enum RelayCoreError: Error {
+    case wrongMethodType
+}
 
 protocol RelayCore: class {
     
-    var didReceiveMessage: (_ message: [String: Any], _ replyHandler: (([String: Any]) -> Void)?) -> Void { get set }
-    var didReceiveUserInfo: (_ userInfo: [String: Any]) -> Void { get set }
+    static var methodType: Method.Type { get }
     
-    func sendMessage(_ data: [String: Any], replyHandler: @escaping ([String: Any]) -> Void, errorHandler: @escaping (Error) -> Void)
-    func transferUserInfo(_ data: [String: Any])
+    var didReceiveMessage: (_ message: [String: Any], _ method: Method, _ replyHandler: (([String: Any]) -> Void)?) -> Void { get set }
+    
+    func sendMessage(_ data: [String: Any], _ method: Method, replyHandler: @escaping ([String: Any]) -> Void, errorHandler: @escaping (Error) -> Void) throws
 }
 
 class SimpleCore: RelayCore {
     
-    var didReceiveMessage: ([String : Any], (([String : Any]) -> Void)?) -> Void
-    var didReceiveUserInfo: ([String : Any]) -> Void
+    enum SimpleCoreMethod: Method {
+        case sendMessage
+    }
+    
+    static let methodType: Method.Type = SimpleCoreMethod.self
+    
+    var didReceiveMessage: ([String : Any], Method, (([String : Any]) -> Void)?) -> Void
     
     init() {
-        self.didReceiveMessage = { _, _ in }
-        self.didReceiveUserInfo = { _ in }
+        self.didReceiveMessage = { _, _, _ in }
     }
     
-    func sendMessage(_ data: [String : Any], replyHandler: @escaping ([String : Any]) -> Void, errorHandler: @escaping (Error) -> Void) {
-        self.didReceiveMessage(data, replyHandler)
-    }
-    
-    func transferUserInfo(_ data: [String : Any]) {
-        self.didReceiveUserInfo(data)
+    func sendMessage(_ data: [String : Any], _ method: Method, replyHandler: @escaping ([String : Any]) -> Void, errorHandler: @escaping (Error) -> Void) throws {
+        
+        guard let method = method as? SimpleCoreMethod else { throw RelayCoreError.wrongMethodType }
+        
+        self.didReceiveMessage(data, method, replyHandler)
     }
     
 }
