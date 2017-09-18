@@ -10,4 +10,4 @@ import Foundation
 
 /// Ideally this Method should be represented as an enum
 
-public protocol Method {}
+public protocol SendingMethod {}

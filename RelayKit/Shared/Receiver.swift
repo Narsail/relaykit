@@ -17,6 +17,6 @@ public protocol Receiver: class {
     
     var moduleIdent: String { get set }
     
-    func didReceiveMessage(_ message: Message, _ method: Method, _ replyHandler: ((_ message: Message) -> Void)?)
+    func didReceiveMessage(_ message: Message, _ method: SendingMethod, _ replyHandler: ((_ message: Message) -> Void)?)
     
 }

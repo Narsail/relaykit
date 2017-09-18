@@ -11,14 +11,14 @@ import WatchConnectivity
 
 class WatchConnectivityCore: NSObject, RelayCore {
     
-    enum WatchConnectivityCoreMethod: Method {
+    enum WatchConnectivityCoreMethod: SendingMethod {
         case sendMessage
         case transferUserInfo
     }
     
-    static let methodType: Method.Type = WatchConnectivityCoreMethod.self
+    static let methodType: SendingMethod.Type = WatchConnectivityCoreMethod.self
     
-    var didReceiveMessage: ([String : Any], Method, (([String : Any]) -> Void)?) -> Void
+    var didReceiveMessage: ([String : Any], SendingMethod, (([String : Any]) -> Void)?) -> Void
     
     let wcSession = WCSession.default
     
@@ -30,7 +30,7 @@ class WatchConnectivityCore: NSObject, RelayCore {
         super.init()
     }
     
-    func sendMessage(_ data: [String : Any], _ method: Method, replyHandler: @escaping ([String : Any]) -> Void, errorHandler: @escaping (Error) -> Void) throws {
+    func sendMessage(_ data: [String : Any], _ method: SendingMethod, replyHandler: @escaping ([String : Any]) -> Void, errorHandler: @escaping (Error) -> Void) throws {
         
         guard let method = method as? WatchConnectivityCoreMethod else { throw RelayCoreError.wrongMethodType }
         
