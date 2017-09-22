@@ -19,7 +19,7 @@ public enum RelayError: Error {
 public class Relay: NSObject {
     
     /// Last initiated Relay
-    static var shared: Relay?
+    public static var shared: Relay?
     
     internal var core: RelayCore
     
