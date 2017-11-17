@@ -1,4 +1,4 @@
-# RelayKit
+![Alt text](RelayKit.png?raw=true "Title")
 
 Currently the WatchConnectivity Framework of iOS and watchOS can only handle one delegate. In the Application of my current Startup [Evomo][Evomo] we have multiple frameworks independently talking to their counterpart on the Apple Watch. To handle the Messages between the Sender and its paired Receiver efficiently we developed **RelayKit**.
 
