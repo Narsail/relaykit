@@ -9,11 +9,11 @@
 import Foundation
 import WatchConnectivity
 
-enum RelayCoreError: Error {
+public enum RelayCoreError: Error {
     case wrongMethodType
 }
 
-protocol RelayCore: class {
+public protocol RelayCore: class {
     
     static var methodType: SendingMethod.Type { get }
     
@@ -22,21 +22,21 @@ protocol RelayCore: class {
     func sendMessage(_ data: [String: Any], _ method: SendingMethod, replyHandler: @escaping ([String: Any]) -> Void, errorHandler: @escaping (Error) -> Void) throws
 }
 
-class SimpleCore: RelayCore {
+public class SimpleCore: RelayCore {
     
-    enum SimpleCoreMethod: SendingMethod {
+    public enum SimpleCoreMethod: SendingMethod {
         case sendMessage
     }
     
-    static let methodType: SendingMethod.Type = SimpleCoreMethod.self
+    static public let methodType: SendingMethod.Type = SimpleCoreMethod.self
     
-    var didReceiveMessage: ([String : Any], SendingMethod, (([String : Any]) -> Void)?) -> Void
+    public var didReceiveMessage: ([String : Any], SendingMethod, (([String : Any]) -> Void)?) -> Void
     
     init() {
         self.didReceiveMessage = { _, _, _ in }
     }
     
-    func sendMessage(_ data: [String : Any], _ method: SendingMethod, replyHandler: @escaping ([String : Any]) -> Void, errorHandler: @escaping (Error) -> Void) throws {
+    public func sendMessage(_ data: [String : Any], _ method: SendingMethod, replyHandler: @escaping ([String : Any]) -> Void, errorHandler: @escaping (Error) -> Void) throws {
         
         guard let method = method as? SimpleCoreMethod else { throw RelayCoreError.wrongMethodType }
         

@@ -47,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		28AC395BDF3D527CC0AC34A7 /* Pods-iOS Framework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Framework.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS Framework/Pods-iOS Framework.release.xcconfig"; sourceTree = "<group>"; };
+		2A1388E51FBBBCBB00B1C616 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		2A1499241F6D436A00F1269F /* RelayKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RelayKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A1499281F6D436A00F1269F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A1499341F6D43B200F1269F /* RelayKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RelayKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +113,7 @@
 		2A14991A1F6D436A00F1269F = {
 			isa = PBXGroup;
 			children = (
+				2A1388E51FBBBCBB00B1C616 /* .travis.yml */,
 				2A2F2D781F70899D00A3BCE5 /* RelayKit.podspec */,
 				2A1D7FEA1F6ED94F004AF4D2 /* README.md */,
 				2A58CB211F6EC71F00E817ED /* Podfile */,
@@ -586,7 +588,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -646,7 +648,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

@@ -10,8 +10,8 @@ target 'iOS Framework' do
   target 'iOS Framework Unit Tests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'Quick', :git => "https://github.com/Quick/Quick.git", :branch => "master"
-    pod 'Nimble', :git => "https://github.com/Quick/Nimble.git", :branch => "master"
+    pod 'Quick'
+    pod 'Nimble'
   end
 
 end
