@@ -1,10 +1,30 @@
-//
-//  Relay.swift
-//  RelayKit
-//
-//  Created by David Moeller on 16.09.17.
-//  Copyright © 2017 David Moeller. All rights reserved.
-//
+/// Copyright (c) 2017 David Moeller
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+///
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+///
+/// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
+/// distribute, sublicense, create a derivative work, and/or sell copies of the
+/// Software in any work that is designed, intended, or marketed for pedagogical or
+/// instructional purposes related to programming, coding, application development,
+/// or information technology.  Permission for such use, copying, modification,
+/// merger, publication, distribution, sublicensing, creation of derivative works,
+/// or sale is expressly withheld.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
 
 import Foundation
 import WatchConnectivity
@@ -16,10 +36,15 @@ public enum RelayError: Error {
     case receiverNotFound
 }
 
-public class Relay: NSObject {
+open class Relay: NSObject {
     
     /// Last initiated Relay
-    public static var shared: Relay?
+    public static var shared: Relay? {
+        didSet {
+            debugLog(RelayKitLogCategory.configuration,
+                     ["Setting", type(of: shared), "as Relay with", type(of: shared?.core), "."])
+        }
+    }
     
     internal var core: RelayCore
     
@@ -28,7 +53,7 @@ public class Relay: NSObject {
     
     public var errorHandler: ((Error) -> Void)? = nil
     
-    internal init(core: RelayCore) {
+    public init(core: RelayCore) {
         
         self.core = core
 
@@ -40,6 +65,9 @@ public class Relay: NSObject {
             
             // Check for the Module Indent
             do {
+                
+                debugLog(.messages, ["Received Message Data", data])
+                
                 guard let moduleIdent = data["moduleIdent"] as? String else { throw RelayError.moduleIdentNotFound }
                 
                 // Check for the receiver
@@ -53,13 +81,24 @@ public class Relay: NSObject {
                 
                 let message = try messageType.decode(data)
                 
+                debugLog(.messages, ["Received", messageType, "with", method])
+                
                 if let replyHandler = replyHandler {
-                    receiver.didReceiveMessage(message, method, { data in replyHandler(data.encode()) })
+                    receiver.didReceiveMessage(message, method, { replyMessage in
+                        
+                        var encodedData = replyMessage.encode()
+                        
+                        encodedData["moduleIdent"] = moduleIdent
+                        encodedData["messageIdent"] = type(of: replyMessage).messageIdent
+                        
+                        replyHandler(encodedData)
+                    })
                 } else {
                     receiver.didReceiveMessage(message, method, nil)
                 }
                 
             } catch {
+                debugLog(.messages, ["Receiving message failed with", error, "by", method])
                 self?.errorHandler?(error)
             }
             
@@ -88,25 +127,40 @@ public class Relay: NSObject {
         // Set the necessary blocks
         sender.sendMessageBlock = { [weak self] message, method, replyHandler, errorHandler in
             
-            // Error Handling if wrong Method
+            debugLog(.messages, ["Sending Message", type(of: message), "with", method])
             
+            // Error Handling if wrong Method
             var data = message.encode()
             data["moduleIdent"] = sender.moduleIdent
             data["messageIdent"] = type(of: message).messageIdent
             
+            debugLog(.messageContent, ["Sending Message Data", data])
+            
             do {
                 try self?.core.sendMessage(data, method, replyHandler: { replyData in
                     do {
+                        
+                        debugLog(.messageContent, ["Got Reply Data with", replyData])
                         // Find Message ident
-                        guard let messageIdent = replyData["messageIdent"] as? String else { throw RelayError.messageIdentNotFound }
+                        guard let messageIdent = replyData["messageIdent"] as? String else {
+                            throw RelayError.messageIdentNotFound
+                        }
                         // Find a suitable Message to return
-                        guard let messageClass = messages.first(where: { $0.messageIdent == messageIdent }) else { throw RelayError.noMessageTypeMatchFor(messageIdent: messageIdent) }
-                        replyHandler(try messageClass.decode(replyData))
+                        guard let messageClass = messages.first(where: { $0.messageIdent == messageIdent }) else {
+                            throw RelayError.noMessageTypeMatchFor(messageIdent: messageIdent)
+                        }
+                        let responseMessage = try messageClass.decode(replyData)
+                        
+                        debugLog(.messages, ["Got Reply with", type(of: message), "with", method])
+                        
+                        replyHandler(responseMessage)
                     } catch {
+                        debugLog(.messages, ["Receiving reply failed with", error, "by", method])
                         errorHandler(error)
                     }
                 }, errorHandler: errorHandler)
             } catch {
+                debugLog(.messages, ["Sending message failed with", error, "by", method])
                 errorHandler(error)
             }
             

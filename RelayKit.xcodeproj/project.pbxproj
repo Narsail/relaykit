@@ -31,6 +31,8 @@
 		2A48ECC41F6DC73900542EA6 /* WatchConnectivityCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A48ECC31F6DC73900542EA6 /* WatchConnectivityCore.swift */; };
 		2A48ECC51F6DC73900542EA6 /* WatchConnectivityCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A48ECC31F6DC73900542EA6 /* WatchConnectivityCore.swift */; };
 		2A58CB1A1F6EC44900E817ED /* RelayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1499241F6D436A00F1269F /* RelayKit.framework */; };
+		2AF838842018AED6005A6983 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF838832018AED6005A6983 /* Logging.swift */; };
+		2AF838852018AED6005A6983 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF838832018AED6005A6983 /* Logging.swift */; };
 		8E9BA99AC2D73AC0080E3192 /* Pods_iOS_Framework_Unit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF395F49AEAD5211A0726174 /* Pods_iOS_Framework_Unit_Tests.framework */; };
 		B8EB24C3748E196B03351116 /* Pods_iOS_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 721A9A26D342BD0CF0BDD2E1 /* Pods_iOS_Framework.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +73,7 @@
 		2A58CB151F6EC44900E817ED /* iOS Framework Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS Framework Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A58CB191F6EC44900E817ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A58CB211F6EC71F00E817ED /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		2AF838832018AED6005A6983 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		61EEDF50179232561D692D90 /* Pods-iOS Framework Unit Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Framework Unit Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS Framework Unit Tests/Pods-iOS Framework Unit Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		721A9A26D342BD0CF0BDD2E1 /* Pods_iOS_Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E1845D7BCC6E51020A55CD /* Pods-iOS Framework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Framework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS Framework/Pods-iOS Framework.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +158,7 @@
 				2A1499481F6D4D6B00F1269F /* Allrounder.swift */,
 				2A14994B1F6D4DCD00F1269F /* Relay.swift */,
 				2A2F2D731F7075E200A3BCE5 /* SendingMethod.swift */,
+				2AF838832018AED6005A6983 /* Logging.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -508,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A48ECBF1F6DC13300542EA6 /* WatchConnectivityCoreIOS.swift in Sources */,
+				2AF838842018AED6005A6983 /* Logging.swift in Sources */,
 				2A1499461F6D492900F1269F /* Receiver.swift in Sources */,
 				2A1499431F6D476000F1269F /* Sender.swift in Sources */,
 				2A1499401F6D470F00F1269F /* Message.swift in Sources */,
@@ -524,6 +529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A1499471F6D492900F1269F /* Receiver.swift in Sources */,
+				2AF838852018AED6005A6983 /* Logging.swift in Sources */,
 				2A1499441F6D476000F1269F /* Sender.swift in Sources */,
 				2A48ECC11F6DC6BA00542EA6 /* WatchConnectivityCoreWatchOS.swift in Sources */,
 				2A1499411F6D470F00F1269F /* Message.swift in Sources */,
