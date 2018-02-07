@@ -66,7 +66,7 @@ open class Relay: NSObject {
             // Check for the Module Indent
             do {
                 
-                debugLog(.messages, ["Received Message Data", data])
+                debugLog(.messageContent, ["Received Message Data", data])
                 
                 guard let moduleIdent = data["moduleIdent"] as? String else { throw RelayError.moduleIdentNotFound }
                 
